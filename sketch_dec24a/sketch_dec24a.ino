@@ -7,8 +7,10 @@
 #define porti2c 0x12
 int dataRecevied1(127);
 int vitesseD(0);
+int last1(127);
 int dataRecevied2(127);
 int vitesseG(0);
+int last2(127);
 boolean data(false);
 boolean done(true);
 
@@ -23,8 +25,11 @@ void setup() {
 
 void loop() {
   delay(1);
-  if(done=false)
+  if(done=false && (last2 != dataRecevied2 || last1 != dataRecevied1))
   {
+    done=true;
+    last1 = dataRecevied1;
+    last2 = dataRecevied2;
     vitesseD = dataRecevied1 - 127;
     vitesseG = dataRecevied2 - 127;
 
@@ -71,7 +76,6 @@ void loop() {
       analogWrite(moteurD, i);
       analogWrite(moteurG, o);
     }
-    done = true;
     Wire.write(0);
   }
 }
