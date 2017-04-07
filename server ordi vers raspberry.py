@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 import socket
 import pygame
 from pygame.locals import *
@@ -6,20 +7,32 @@ Continue = 1
 arrow = ""
 pygame.init()
 window = pygame.display.set_mode((50, 50))
-up = pygame.image.load("/resouces/arrowup.png").convert()
-down = pygame.image.load("/resouces/arrowdown.png").convert()
-left = pygame.image.load("/resouces/arrowleft.png").convert()
-right = pygame.image.load("/resouces/arrowright.png").convert()
-upright = pygame.image.load("/resouces/arrowupr.png").convert()
-upleft = pygame.image.load("/resouces/arrowupl.png").convert()
-void = pygame.image.load("/resources/void.png")
+up = pygame.image.load("arrowup.png").convert()
+down = pygame.image.load("arrowdown.png").convert()
+left = pygame.image.load("arrowleft.png").convert()
+right = pygame.image.load("arrowright.png").convert()
+upright = pygame.image.load("arrowupr.png").convert()
+upleft = pygame.image.load("arrowupl.png").convert()
+void = pygame.image.load("void.png")
 
-socket = socket.socket()
-socket.bind(('', 4238))
-socket.listen(5)
+
+
+
+
+
+s = socket.socket()
+s.bind(('', 234))
+s.listen(5)
 print("Veuillez connecter le client")
-client, adress = socket.accept()
-send = socket.send()
+client, adress = s.accept()
+print("client connecté :"+str(adress))
+
+def send(mess="127 127"):
+    s.send(mess.encode("utf8"))
+
+
+
+
 
 def effectuer(arrow):
     if arrow=="avant":
