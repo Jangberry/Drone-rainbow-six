@@ -1,9 +1,10 @@
 #include <Wire.h>
 
-#define sensD 8
-#define sensG 7
-#define moteurD 6
-#define moteurG 5
+
+#define ArrieD 5   //pin acheur moteur droit : arriere
+#define AvantD 6    //pin acheur moteur droit : avant
+#define ArrieG 9    //pin acheur moteur gauche : arriere
+#define AvantG 10    //pin acheur moteur gauche : avant
 #define porti2c 0x12
 int dataRecevied1(127);
 int vitesseD(0);
@@ -11,12 +12,16 @@ int last1(127);
 int dataRecevied2(127);
 int vitesseG(0);
 int last2(127);
+int moteurD();
+int moteurG();
 boolean data(false);
 boolean done(true);
 
 void setup() {
-  pinMode(moteurD, OUTPUT);
-  pinMode(moteurG, OUTPUT);
+  pinMode(ArrieD, OUTPUT);
+  pinMode(AvantD, OUTPUT);
+  pinMode(ArrieG, OUTPUT);
+  pinMode(AvantG, OUTPUT);
   Wire.begin(porti2c);
   Wire.onReceive(receiveEvent);
   Wire.onRequest(sendEvent);
@@ -35,21 +40,25 @@ void loop() {
 
     if(vitesseD >= 0)
     {
-      digitalWrite(sensD, LOW);
+      digitalWrite(ArrieD, LOW);
+      moteurD = AvantD;
     }
     else
     {
-      digitalWrite(sensG, HIGH);
+      digitalWrite(AvantD, LOW);
+      moteurD = ArrieD;
       vitesseD -= vitesseD*2;
     }
 
     if(vitesseG >= 0)
     {
-      digitalWrite(sensG, LOW);
+      digitalWrite(ArrieG, LOW);
+      moteurG = AvantG;
     }
     else
     {
-      digitalWrite(sensG, HIGH);
+      digitalWrite(AvantG, LOW)
+      moteurG = ArrieG;
       vitesseG -= vitesseG*2;
     }
 
