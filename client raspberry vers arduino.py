@@ -2,7 +2,6 @@ import smbus
 import time
 import socket 
 
-
 bus = smbus.SMBus(1)
 address = 0x12
 
@@ -12,18 +11,15 @@ s = socket.socket()
 
 def send(dataD, dataG):
     bus.write_byte(address, dataD)
-    while bus.read_byte(address) != dataD:
-        time.sleep(0.01)
+    time.sleep(0.01)
     bus.write_byte(address, dataG)
-    while bus.read_byte(address) != dataG:
-        time.sleep(0.01)
 
 s.connect((hote, port))
 print("connected")
 
 while 1:
     recu = s.recv(1024)
-    recu = recu.decode("utf8")
+    recu = recu.encode("utf8")
     print(recu)
     if recu == "stop":
         exit()

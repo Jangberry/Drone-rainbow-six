@@ -28,34 +28,30 @@ client, adress = s.accept()
 print("client connecté :"+str(adress))
 
 def send(mess="127 127"):
-    s.send(mess.encode("utf8"))
-
-
-
-
+    client.send(mess)
 
 def effectuer(arrow):
     if arrow=="avant":
         window.blit(up, (0,0))
-        send("255 255")
+        send(u"255 255")
     if arrow=="arriere":
         window.blit(down, (0,0))
         send("0 0")
     if arrow=="gauche":
         window.blit(left, (0,0))
-        send("255 125")
-    if arrow=="droite":
+        send(u"255 125")
+    if arrow==u"droite":
         window.blit(right, (0,0))
-        send("125 255")
+        send(u"125 255")
     if arrow=="avantdroite":
         window.blit(upright, (0,0))
-        send("175 255")
+        send(u"175 255")
     if arrow=="avantgauche":
         window.blit(upleft, (0,0))
-        send("255 175")
-    if ("avantarriere" or "gauchedroite")in arrow:
+        send(u"255 175")
+    if ("avantarriere" == arrow or "gauchedroite" == arrow):
         window.blit(void, (0,0))
-        send("127 127")
+        send(u"127 127")
 
     pygame.display.flip()
 
@@ -63,7 +59,9 @@ while Continue:
     for event in pygame.event.get():
         if event.type == QUIT:
             Continue=0
-            send("stop")
+            send(u"stop")
+        if event.type == KEYUP:
+            arrow = ""
         if event.type == KEYDOWN:
             if event.key == K_z:
                 arrow = arrow+"avant"
@@ -74,6 +72,5 @@ while Continue:
             if event.key == K_d:
                 arrow = arrow+"droite"
             effectuer(arrow)
-            arrow = ""
-        if event.type == KEYUP:
-            arrow = ""
+    arrow = ""
+
