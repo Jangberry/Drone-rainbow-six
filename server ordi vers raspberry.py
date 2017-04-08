@@ -14,6 +14,7 @@ right = pygame.image.load("arrowright.png").convert()
 upright = pygame.image.load("arrowupr.png").convert()
 upleft = pygame.image.load("arrowupl.png").convert()
 void = pygame.image.load("void.png")
+lastarrow=""
 
 
 
@@ -27,7 +28,7 @@ print("Veuillez connecter le client")
 client, adress = s.accept()
 print("client connecté :"+str(adress))
 
-def send(mess="127 127"):
+def send(mess=u"127 127"):
     client.send(mess)
 
 def effectuer(arrow):
@@ -43,13 +44,13 @@ def effectuer(arrow):
     if arrow==u"droite":
         window.blit(right, (0,0))
         send(u"125 255")
-    if arrow=="avantdroite":
+    if arrow=="avantdroite" or arrow=="droiteavant":
         window.blit(upright, (0,0))
         send(u"175 255")
-    if arrow=="avantgauche":
+    if arrow=="avantgauche" or arrow=="gaucheavant":
         window.blit(upleft, (0,0))
         send(u"255 175")
-    if ("avantarriere" == arrow or "gauchedroite" == arrow):
+    if ("avantarriere" == arrow or "gauchedroite" == arrow) or arrow == "":
         window.blit(void, (0,0))
         send(u"127 127")
 
@@ -61,7 +62,14 @@ while Continue:
             Continue=0
             send(u"stop")
         if event.type == KEYUP:
-            arrow = ""
+            if event.key == K_z:
+                arrow = "".join(arrow.split("avant"))
+            if event.key == K_s:
+                arrow = "".join(arrow.split("arriere"))
+            if event.key == K_q:
+                arrow = "".join(arrow.split("gauche"))
+            if event.key == K_d:
+                arrow = "".join(arrow.split("droite"))
         if event.type == KEYDOWN:
             if event.key == K_z:
                 arrow = arrow+"avant"
@@ -71,6 +79,6 @@ while Continue:
                 arrow = arrow+"gauche"
             if event.key == K_d:
                 arrow = arrow+"droite"
-            effectuer(arrow)
-    arrow = ""
-
+    if arrow != lastarrow:
+        effectuer(arrow)
+        lastarrow=arrow
