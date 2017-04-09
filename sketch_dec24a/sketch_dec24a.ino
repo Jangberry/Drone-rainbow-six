@@ -1,6 +1,5 @@
 #include <Wire.h>
 
-
 #define ArrieD 5   //pin acheur moteur droit : arriere
 #define AvantD 6    //pin acheur moteur droit : avant
 #define ArrieG 9    //pin acheur moteur gauche : arriere
@@ -12,8 +11,8 @@ int last1(127);
 int dataRecevied2(127);
 int vitesseG(0);
 int last2(127);
-int moteurD();
-int moteurG();
+int moteurD(0);
+int moteurG(0);
 boolean data(false);
 boolean done(true);
 
@@ -30,7 +29,7 @@ void setup() {
 
 void loop() {
   delay(1);
-  if(done=false && (last2 != dataRecevied2 || last1 != dataRecevied1))
+  if(done==false && (last2 != dataRecevied2 || last1 != dataRecevied1))
   {
     done=true;
     last1 = dataRecevied1;
@@ -57,13 +56,13 @@ void loop() {
     }
     else
     {
-      digitalWrite(AvantG, LOW)
+      digitalWrite(AvantG, LOW);
       moteurG = ArrieG;
       vitesseG -= vitesseG*2;
     }
 
 
-    for(int i(0),o(0),count(0); i<vitesseD || o<vitesseG && count != 11; count += 1)
+    for(int i(0),o(0),count(0); ((i<vitesseD || o<vitesseG) && count != 11); count += 1)
     {
       delay(9);
       if(i < vitesseD)
@@ -90,7 +89,7 @@ void loop() {
 }
 
 
-void receiveEvent() 
+void receiveEvent(int howMany)
 {
   if(data==false)
   {
