@@ -34,8 +34,8 @@ void loop() {
     done=true;
     last1 = dataRecevied1;
     last2 = dataRecevied2;
-    vitesseD = dataRecevied1 - 127;
-    vitesseG = dataRecevied2 - 127;
+    vitesseD = (dataRecevied1 - 127)*2;
+    vitesseG = (dataRecevied2 - 127)*2;
 
     if(vitesseD >= 0)
     {
