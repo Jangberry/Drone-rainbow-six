@@ -1,9 +1,9 @@
 #include <Wire.h>
 
-#define ArrieD 5   //pin acheur moteur droit : arriere
-#define AvantD 6    //pin acheur moteur droit : avant
-#define ArrieG 9    //pin acheur moteur gauche : arriere
-#define AvantG 10    //pin acheur moteur gauche : avant
+#define ArrieD 5   //pin hacheur moteur droit : arriere
+#define AvantD 6    //pin hacheur moteur droit : avant
+#define ArrieG 9    //pin hacheur moteur gauche : arriere
+#define AvantG 10    //pin hacheur moteur gauche : avant
 #define porti2c 0x12
 int dataRecevied1(127);
 int vitesseD(0);
