@@ -1,9 +1,13 @@
 #include <Wire.h>
 
-#define ArrieD 5   //pin hacheur moteur droit : arriere
-#define AvantD 6    //pin hacheur moteur droit : avant
-#define ArrieG 9    //pin hacheur moteur gauche : arriere
-#define AvantG 10    //pin hacheur moteur gauche : avant
+#define ArrieD 4   //pin moteur droit : arriere
+#define AvantD 7    //pin moteur droit : avant
+#define ArrieG 8    //pin moteur gauche : arriere
+#define AvantG 11    //pin moteur gauche : avant
+#define pwmArrieD 5   //pin hacheur moteur droit : arriere
+#define pwmAvantD 6    //pin hacheur moteur droit : avant
+#define pwmArrieG 9    //pin hacheur moteur gauche : arriere
+#define pwmAvantG 10    //pin hacheur moteur gauche : avant
 #define porti2c 0x12
 int dataRecevied1(127);
 int vitesseD(0);
@@ -21,6 +25,10 @@ void setup() {
   pinMode(AvantD, OUTPUT);
   pinMode(ArrieG, OUTPUT);
   pinMode(AvantG, OUTPUT);
+  pinMode(pwmArrieD, OUTPUT);
+  pinMode(pwmAvantD, OUTPUT);
+  pinMode(pwmArrieG, OUTPUT);
+  pinMode(pwmAvantG, OUTPUT);
   Wire.begin(porti2c);
   Wire.onReceive(receiveEvent);
   Wire.onRequest(sendEvent);
@@ -40,24 +48,28 @@ void loop() {
     if(vitesseD >= 0)
     {
       digitalWrite(ArrieD, LOW);
-      moteurD = AvantD;
+      digitalWrite(AvantD, HIGH);
+      moteurD = pwmAvantD;
     }
     else
     {
       digitalWrite(AvantD, LOW);
-      moteurD = ArrieD;
+      digitalWrite(ArrieD, HIGH);
+      moteurD = pwmArrieD;
       vitesseD -= vitesseD*2;
     }
 
     if(vitesseG >= 0)
     {
       digitalWrite(ArrieG, LOW);
-      moteurG = AvantG;
+      digitalWrite(AvantG, HIGH);
+      moteurG = pwmAvantG;
     }
     else
     {
       digitalWrite(AvantG, LOW);
-      moteurG = ArrieG;
+      digitalWrite(ArrieG, HIGH);
+      moteurG = pwmArrieG;
       vitesseG -= vitesseG*2;
     }
 
