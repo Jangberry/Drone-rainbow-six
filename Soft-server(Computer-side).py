@@ -28,7 +28,7 @@ print("Veuillez connecter le client")
 client, adress = s.accept()
 print("client connecté :"+str(adress))
 
-def send(mess=u"127 127"):
+def send(mess=u"128 128"):
     client.send(mess)
 
 def effectuer(arrow):
@@ -37,13 +37,13 @@ def effectuer(arrow):
         send(u"255 255")
     if arrow=="arriere":
         window.blit(down, (0,0))
-        send("0 0")
+        send("1 1")
     if arrow=="gauche":
         window.blit(left, (0,0))
-        send(u"255 125")
+        send(u"255 100")
     if arrow==u"droite":
         window.blit(right, (0,0))
-        send(u"125 255")
+        send(u"100 255")
     if arrow=="avantdroite" or arrow=="droiteavant":
         window.blit(upright, (0,0))
         send(u"175 255")
@@ -52,7 +52,7 @@ def effectuer(arrow):
         send(u"255 175")
     if ("avantarriere" == arrow or "gauchedroite" == arrow) or arrow == "":
         window.blit(void, (0,0))
-        send(u"127 127")
+        send(u"128 128")
 
     pygame.display.flip()
 

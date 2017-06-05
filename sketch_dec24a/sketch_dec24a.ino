@@ -9,12 +9,12 @@
 #define pwmArrieG 9    //pin hacheur moteur gauche : arriere
 #define pwmAvantG 10    //pin hacheur moteur gauche : avant
 #define porti2c 0x12
-int dataRecevied1(127);
+int dataRecevied1(128);
 int vitesseD(0);
-int last1(127);
-int dataRecevied2(127);
+int last1(128);
+int dataRecevied2(128);
 int vitesseG(0);
-int last2(127);
+int last2(128);
 int moteurD(0);
 int moteurG(0);
 boolean data(false);
@@ -39,21 +39,20 @@ void loop() {
   delay(1);
   if(done==false && (last2 != dataRecevied2 || last1 != dataRecevied1))
   {
-    done=true;
-    last1 = dataRecevied1;
-    last2 = dataRecevied2;
-    vitesseD = (dataRecevied1 - 127)*2;
-    vitesseG = (dataRecevied2 - 127)*2;
+    vitesseD = (dataRecevied1 - 128)*2;
+    vitesseG = (dataRecevied2 - 128)*2;
 
     if(vitesseD >= 0)
     {
       digitalWrite(ArrieD, LOW);
+      digitalWrite(pwmArrieD, LOW);
       digitalWrite(AvantD, HIGH);
       moteurD = pwmAvantD;
     }
     else
     {
       digitalWrite(AvantD, LOW);
+      digitalWrite(pwmAvantD, LOW);
       digitalWrite(ArrieD, HIGH);
       moteurD = pwmArrieD;
       vitesseD -= vitesseD*2;
@@ -62,41 +61,47 @@ void loop() {
     if(vitesseG >= 0)
     {
       digitalWrite(ArrieG, LOW);
+      digitalWrite(pwmArrieG, LOW);
       digitalWrite(AvantG, HIGH);
       moteurG = pwmAvantG;
     }
     else
     {
       digitalWrite(AvantG, LOW);
+      digitalWrite(pwmAvantG, LOW);
       digitalWrite(ArrieG, HIGH);
       moteurG = pwmArrieG;
       vitesseG -= vitesseG*2;
     }
 
-
-    for(int i(0),o(0),count(0); ((i<vitesseD || o<vitesseG) && count != 11); count += 1)
+    for(int i(last1),o(last2),count(0); ((i<vitesseD || o<vitesseG) && count != 11); count += 1)
     {
       delay(9);
       if(i < vitesseD)
       {
-        i += vitesseD / 10;
+        i += (vitesseD- last1)/ 10;
       }
       else
       {
-        i = vitesseD;
+        i -= (vitesseD- last1)/10;
       }
       if(o < vitesseG)
       {
-        o += vitesseG / 10;
+        o += (vitesseG - last2) / 10;
       }
       else
       {
-        o = vitesseG;
+        o -= (vitesseG - last2) / 10;
       }
       analogWrite(moteurD, i);
       analogWrite(moteurG, o);
     }
+    last1 = dataRecevied1;
+    last2 = dataRecevied2;
+    analogWrite(moteurD, vitesseD);
+    analogWrite(moteurG, vitesseG);
     Wire.write(0);
+    done=true;
   }
 }
 
