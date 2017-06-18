@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 import socket
-import pygame
+import pygame                   #   sudo apt-get install python-pygame
 from pygame.locals import *
 
 Continue = 1

@@ -1,11 +1,22 @@
-import smbus 
+import smbus                #   if it bug, verify in sudo "raspi-config" that interface > I2C is activated
 import time
-import socket 
+import socket
+import RPi.GPIO as gpio
+
+#################################
+#                               #
+hote = "192.168.0.17"           #       IP adress of the computer (this variable may disapear (you'll just not have to set it, it'll be automatic) in a incomming commit)
+#                               #
+#################################
+
+
+gpio.setmode(gpio.BCM)
+gpio.setup(7, gpio.OUT, initial=gpio.HIGH)
+time.sleep(2)
 
 bus = smbus.SMBus(1)
 address = 0x12
 
-hote = "192.168.0.08"
 port = 234
 s = socket.socket()
 
@@ -23,6 +34,8 @@ while 1:
     #recu = recu.encode("utf8")
     print(recu)
     if recu == "stop":
+        gpio.output(7, gpio.LOW)
+        gpio.cleanup()
         exit()
     recu = recu.split(" ")
     if len(recu) > 1:
