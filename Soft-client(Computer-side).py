@@ -28,7 +28,7 @@ void = pygame.image.load("void.png")
 lastarrow=""
 
 def send(mess=u"128 128"):
-    client.send(mess)
+    s.send(mess)
 
 def effectuer(arrow):
     if arrow=="avant":

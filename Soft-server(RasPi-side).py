@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 import smbus                #   if it bug, verify in sudo "raspi-config" that interface > I2C is activated
 import time
 import socket
@@ -25,7 +26,7 @@ bus = smbus.SMBus(1)
 address = 0x12
 
 while 1:
-    recu = s.recv(255)
+    recu = client.recv(255)
     #print(str(type(recu))+str(recu))
     #recu = recu.encode("utf8")
     print(recu)
