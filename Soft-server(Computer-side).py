@@ -3,6 +3,17 @@ import socket
 import pygame                   #   sudo apt-get install python-pygame
 from pygame.locals import *
 
+#################################
+#                               #
+hote = "192.168.0.6"            #       IP adress of the Raspi
+#                               #
+#################################
+
+port = 234
+s = socket.socket()
+s.connect((hote, port))
+print("connected")
+
 Continue = 1
 arrow = ""
 pygame.init()
@@ -15,18 +26,6 @@ upright = pygame.image.load("arrowupr.png").convert()
 upleft = pygame.image.load("arrowupl.png").convert()
 void = pygame.image.load("void.png")
 lastarrow=""
-
-
-
-
-
-
-s = socket.socket()
-s.bind(('', 234))
-s.listen(5)
-print("Veuillez connecter le client")
-client, adress = s.accept()
-print("client connecté :"+str(adress))
 
 def send(mess=u"128 128"):
     client.send(mess)
