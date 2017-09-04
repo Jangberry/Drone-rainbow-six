@@ -1,11 +1,11 @@
 #include <Wire.h>
 
-#define ArrieD 4   //pin moteur droit : arriere
-#define AvantD 7    //pin moteur droit : avant
+#define AvantD 4   //pin moteur droit : arriere
+#define ArrieD 7    //pin moteur droit : avant
 #define ArrieG 8    //pin moteur gauche : arriere
 #define AvantG 11    //pin moteur gauche : avant
-#define pwmArrieD 5   //pin hacheur moteur droit : arriere
-#define pwmAvantD 6    //pin hacheur moteur droit : avant
+#define pwmAvantD 5   //pin hacheur moteur droit : arriere
+#define pwmArrieD 6    //pin hacheur moteur droit : avant
 #define pwmArrieG 9    //pin hacheur moteur gauche : arriere
 #define pwmAvantG 10    //pin hacheur moteur gauche : avant
 #define porti2c 0x12
@@ -17,6 +17,8 @@ int vitesseG(0);
 int last2(128);
 int moteurD(0);
 int moteurG(0);
+int lastG(0);
+int lastD(0); 
 boolean data(false);
 boolean done(true);
 
@@ -31,78 +33,59 @@ void setup() {
   pinMode(pwmAvantG, OUTPUT);
   Wire.begin(porti2c);
   Wire.onReceive(receiveEvent);
-  Wire.onRequest(sendEvent);
   Serial.begin(9600);       
 }
 
 void loop() {
-  delay(1);
-  if(done==false && (last2 != dataRecevied2 || last1 != dataRecevied1))
+  if (done == false)
   {
-    vitesseD = (dataRecevied1 - 128)*2;
-    vitesseG = (dataRecevied2 - 128)*2;
-
-    if(vitesseD >= 0)
+    int G(lastG);
+    int D(lastD);
+    int count(0);
+    while (G != vitesseG || D != vitesseD || count < 255)
     {
-      digitalWrite(ArrieD, LOW);
-      digitalWrite(pwmArrieD, LOW);
-      digitalWrite(AvantD, HIGH);
-      moteurD = pwmAvantD;
-    }
-    else
-    {
-      digitalWrite(AvantD, LOW);
-      digitalWrite(pwmAvantD, LOW);
-      digitalWrite(ArrieD, HIGH);
-      moteurD = pwmArrieD;
-      vitesseD -= vitesseD*2;
-    }
-
-    if(vitesseG >= 0)
-    {
-      digitalWrite(ArrieG, LOW);
-      digitalWrite(pwmArrieG, LOW);
-      digitalWrite(AvantG, HIGH);
-      moteurG = pwmAvantG;
-    }
-    else
-    {
-      digitalWrite(AvantG, LOW);
-      digitalWrite(pwmAvantG, LOW);
-      digitalWrite(ArrieG, HIGH);
-      moteurG = pwmArrieG;
-      vitesseG -= vitesseG*2;
-    }
-
-    for(int i(last1),o(last2),count(0); ((i<vitesseD || o<vitesseG) && count != 11); count += 1)
-    {
-      delay(9);
-      if(i < vitesseD)
+      done = true;
+      count += 1;
+      if (G < vitesseG)
       {
-        i += (vitesseD- last1)/ 10;
+        G = G + ((vitesseG*vitesseG)/255)*2;
+      }
+      else if (G > vitesseG)
+      {
+        G = G - ((vitesseG*vitesseG)/255)*2;
       }
       else
       {
-        i -= (vitesseD- last1)/10;
+        G = vitesseG;
       }
-      if(o < vitesseG)
+      if (D < vitesseD)
       {
-        o += (vitesseG - last2) / 10;
+        D = D + ((vitesseD*vitesseD)/255)*2;
+      }
+      else if (D > vitesseD)
+      {
+        D = D - ((vitesseD*vitesseD)/255)*2;
       }
       else
       {
-        o -= (vitesseG - last2) / 10;
+        D = vitesseD;
       }
-      analogWrite(moteurD, i);
-      analogWrite(moteurG, o);
+      digitalWrite(moteurD, D);
+      digitalWrite(moteurG, G);
+      delay(1);
     }
-    last1 = dataRecevied1;
-    last2 = dataRecevied2;
-    analogWrite(moteurD, vitesseD);
-    analogWrite(moteurG, vitesseG);
-    Wire.write(0);
-    done=true;
+    if (vitesseD == 254){digitalWrite(moteurD, HIGH);}
+    else {analogWrite(moteurD, vitesseD);}
+    if (vitesseG == 254){digitalWrite(moteurG, HIGH);}
+    else {analogWrite(moteurG, vitesseG);}
+    lastD = vitesseD;
+    lastG = vitesseG;
+    count = 0;
+    Serial.println("write :");
+    Serial.println(vitesseD);
+    Serial.println(vitesseG);
   }
+  delay(1);
 }
 
 
@@ -112,23 +95,49 @@ void receiveEvent(int howMany)
   {
     dataRecevied1 = Wire.read();
     data = true;
+    Serial.println("Recu :");
+    Serial.println(dataRecevied1);
   }
   else
   {
     dataRecevied2 = Wire.read();
     data = false;
-    done = false;
-  }
-}
+    Serial.println(dataRecevied2);
 
-void sendEvent()
-{
-  if(data == true)
-  {
-    Wire.write(dataRecevied1);
-  }
-  else
-  {
-    Wire.write(dataRecevied2);
+
+    vitesseG = (dataRecevied2 - 128)*2;
+    vitesseD = (dataRecevied1 - 128)*2;
+    if(vitesseD >= 0)
+    {
+      digitalWrite(ArrieD, LOW);
+      moteurD = pwmAvantD;
+      digitalWrite(pwmArrieD, LOW);
+      digitalWrite(AvantD, HIGH);
+    }
+    else
+    {
+      digitalWrite(AvantD, LOW);
+      moteurD = pwmArrieD;
+      digitalWrite(pwmAvantD, LOW);
+      digitalWrite(ArrieD, HIGH);
+      vitesseD -= vitesseD*2;
+    }
+
+    if(vitesseG >= 0)
+    {
+      digitalWrite(ArrieG, LOW);
+      moteurG = pwmAvantG;
+      digitalWrite(pwmArrieG, LOW);
+      digitalWrite(AvantG, HIGH);
+    }
+    else
+    {
+      digitalWrite(AvantG, LOW);
+      moteurG = pwmArrieG;
+      digitalWrite(pwmAvantG, LOW);
+      digitalWrite(ArrieG, HIGH);
+      vitesseG -= vitesseG*2;
+    }
+    done = false;
   }
 }

@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 import socket
-import pygame                   #   sudo apt-get install python-pygame
+import pygame                   #   sudo apt-get install python-pygame		or install it from Google if you are on Doors (Kappa)
 from pygame.locals import *
 
 #################################
@@ -12,7 +12,7 @@ hote = "192.168.0.6"            #       IP adress of the Raspi
 port = 234
 s = socket.socket()
 s.connect((hote, port))
-print("connected")
+print("Connected")
 
 Continue = 1
 arrow = ""
