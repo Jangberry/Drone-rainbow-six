@@ -9,7 +9,7 @@ hote = "192.168.0.6"            #       IP adress of the Raspi
 #                               #
 #################################
 
-port = 234
+port = 8254
 s = socket.socket()
 s.connect((hote, port))
 print("Connected")
@@ -28,7 +28,7 @@ void = pygame.image.load("void.png")
 lastarrow=""
 
 def send(mess=u"128 128"):
-    s.send(mess)
+    s.send(mess.encode("ascii"))
 
 def effectuer(arrow):
     if arrow=="avant":
@@ -39,16 +39,16 @@ def effectuer(arrow):
         send("1 1")
     if arrow=="gauche":
         window.blit(left, (0,0))
-        send(u"255 1")
+        send(u"1 255")
     if arrow==u"droite":
         window.blit(right, (0,0))
-        send(u"1 255")
+        send(u"255 1")
     if arrow=="avantdroite" or arrow=="droiteavant":
         window.blit(upright, (0,0))
-        send(u"128 255")
+        send(u"255 128")
     if arrow=="avantgauche" or arrow=="gaucheavant":
         window.blit(upleft, (0,0))
-        send(u"255 128")
+        send(u"128 255")
     if "avantarriere" == arrow or "gauchedroite" == arrow or "arriereavant" == arrow or "droitegauche" == arrow or arrow == "":
         window.blit(void, (0,0))
         send(u"128 128")

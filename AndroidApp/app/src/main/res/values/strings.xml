@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Rainbow six Drone Commander</string>
+    <string name="About">About</string>
+    <string name="SocialMedia">Social medias</string>
+    <string name="thanks">Thanks</string>
+    <string name="thankscontent">Some shit about who helped me</string>
+    <string name="legal">Licences etc...</string>
+    <string name="legalcontent" translatable="false">Icons :\nmaterial.io\nwww.flaticon.com/authors/pixel-perfect\n\nVirtual joystick:\ngithub.com/controlwear</string>
+    <string name="iphint">Drone\'s IP</string>
+    <string name="maintitle">Connection to the drone</string>
+    <string name="Connect">Connect</string>
+</resources>
