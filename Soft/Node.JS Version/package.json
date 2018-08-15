@@ -1,0 +1,19 @@
+{
+  "name": "drone-server",
+  "version": "0.1.1",
+  "description": "A Node.JS version of the rainbow six drone's server",
+  "main": "server.js",
+  "author": {
+    "name": "Matthieu \"Jangberry\" M.",
+    "url": "https://jangberry.ovh/",
+    "email": "contact@jangberry.ovh"
+  },
+  "license": "apache-2.0",
+  "dependencies": {
+    "events": "^2.0.0",
+    "ip": "^1.1.5",
+    "util": "^0.10.3",
+    "ws": "^5.1.1",
+    "i2c-bus": "^3.2.0"
+  }
+}

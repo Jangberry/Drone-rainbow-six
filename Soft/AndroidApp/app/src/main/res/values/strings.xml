@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Rainbow six Drone Commander</string>
+    <string name="About">About</string>
+    <string name="thanks">Thanks</string>
+    <string name="thankscontent">
+3 of my teachers for their time (For helping me mainly with mechanical issues, but also a bit of code, and for the 3D printer for the first prototype) (I don\'t know if they want to be in the readme, so I hide their names…)\nFor my 3D Printer (I\'m sorry but I don\'t have nickname for all of them):\n\   \   Adrien K.\n\   \   Antoine F. (and also for a lot of coding tips)\n\   \   Clement C.\n\   \   Nicolas R.\n\   \   Remy B.\nNeyrox_73 (moral help)\nBenJiZz (moral help)\nLetsFlo33 (almost nothing)\nAll peoples who trusted me, and encouraged me, mainly on Twitter\nAnd everybody else who helped me during this project and that I forget
+    </string>
+    <string name="legal">Legal</string>
+    <string name="maintitle">Connection to the drone</string>
+    <string name="Connect">Connect</string>
+    <string name="ethaddr" translatable="false">0x55dF1Ea2933AEb271fFae56AE8f464A5AC23a3b1</string>
+    <string name="title_activity_about_tab">AboutTab</string>
+    <string name="legalcontent">Icons : \nmaterial.io\nwww.flaticon.com/authors/pixel-perfect
+        \n\nLibrary used: \ngithub.com/studioidan/HttpAgent\n\nLicences:\nAll icons/logos/trademark
+        own to their respective owners, even if they aren\'t mentioned bellow\n
+        PayPal trademark, and all other resources that fit in intellectual property of PayPal, are property of PayPal Holdings, Inc.\n\n
+
+        (If there is any issue with what\'s wrote above (ex: company name misspelled; something
+        that\'s in your property or your organisation property, appear in app or in the source code
+        but not above; name or logo that doesn\'t appear like you want (like (tm) or © missing); bad
+        attributions of some resources; or any other kind of legal issue) please contact me thought
+        my email address given on Github or on the Play store page of the app, before engage
+        procedures, so I can fix this issue, I\'m a beginner with publishing apps or legal issues in
+        general so it\'s certainly not perfect… sorry)
+    </string>
+    <string name="aboutdev">About the dev</string>
+    <string name="aboutapp">About the App</string>
+    <string name="mypapayladress">Or my PayPal address : matt2001@hotmail.fr</string>
+</resources>

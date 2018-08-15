@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="fr.mistercraft.drone.commander.controlActivity">
+
+    <RelativeLayout
+        android:id="@+id/VideoContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="false">
+
+        <yjkim.mjpegviewer.MjpegView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/video" />
+    </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/ButtonsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <android.support.constraint.Guideline
+                        android:id="@+id/guideline3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.6" />
+
+                    <android.support.design.widget.FloatingActionButton
+                        android:id="@+id/control_BackButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:adjustViewBounds="false"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:hapticFeedbackEnabled="true"
+                        android:onClick="onReturn"
+                        app:backgroundTint="@android:color/darker_gray"
+                        app:elevation="4dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:rippleColor="@color/colorAccent"
+                        app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
+
+                    <io.github.controlwear.virtual.joystick.android.JoystickView
+                        android:id="@+id/joystick"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:elevation="4dp"
+                        app:JV_autoReCenterButton="true"
+                        app:JV_backgroundColor="@color/joysticBG"
+                        app:JV_borderColor="@color/joysticBorder"
+                        app:JV_borderWidth="2dp"
+                        app:JV_buttonColor="@color/joysticFG"
+                        app:JV_buttonSizeRatio="15%"
+                        app:JV_enabled="true"
+                        app:JV_fixedCenter="true"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/guideline3" />
+                </android.support.constraint.ConstraintLayout>
+
+            </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

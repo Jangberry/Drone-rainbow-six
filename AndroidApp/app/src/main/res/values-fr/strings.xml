@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">Télécommande Drone Rainbow six</string>
-    <string name="About">A propos de l\'application</string>
-    <string name="SocialMedia">Réseaux sociaux</string>
-    <string name="thanks">Remerciments</string>
-    <string name="thankscontent">ergergre</string>
-    <string name="legal">Licences etc...</string>
-    <string name="iphint">IP du drone</string>
-</resources>

@@ -1,0 +1,94 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2043
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hard", "Hard", "{F27C5330-7F69-409E-B440-E6CBC3FF174F}"
+	ProjectSection(SolutionItems) = preProject
+		Hard\Clean-conseilled materials.md = Hard\Clean-conseilled materials.md
+		Hard\Clean-STL.zip = Hard\Clean-STL.zip
+		Hard\Clean-SW.zip = Hard\Clean-SW.zip
+		Hard\pied.SLDPRT = Hard\pied.SLDPRT
+		Hard\Plans.fzz = Hard\Plans.fzz
+		Hard\Printable-Assemblage.SLDASM = Hard\Printable-Assemblage.SLDASM
+		Hard\Printable-Piece maitresse(bas).SLDPRT = Hard\Printable-Piece maitresse(bas).SLDPRT
+		Hard\Printable-Piece maitresse(cheville).SLDPRT = Hard\Printable-Piece maitresse(cheville).SLDPRT
+		Hard\Printable-Piece maitresse(haut).SLDPRT = Hard\Printable-Piece maitresse(haut).SLDPRT
+		Hard\Printable-Piece maitresse.SLDPRT = Hard\Printable-Piece maitresse.SLDPRT
+		Hard\Printable-Pneu.SLDPRT = Hard\Printable-Pneu.SLDPRT
+		Hard\Printable-Roue.SLDPRT = Hard\Printable-Roue.SLDPRT
+		Hard\Printable-STL(Little 3D printers).zip = Hard\Printable-STL(Little 3D printers).zip
+		Hard\Printable-STL.zip = Hard\Printable-STL.zip
+		Hard\Printable-SW(Little 3D printers).zip = Hard\Printable-SW(Little 3D printers).zip
+		Hard\Printable-SW.zip = Hard\Printable-SW.zip
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "figurine", "figurine", "{4640E540-8D81-438C-AE92-15E29459C175}"
+	ProjectSection(SolutionItems) = preProject
+		Hard\figurine\Figurine - figurine Main-1.STL = Hard\figurine\Figurine - figurine Main-1.STL
+		Hard\figurine\Figurine - figurine Pied-1.STL = Hard\figurine\Figurine - figurine Pied-1.STL
+		Hard\figurine\Figurine - Printable-Pneu - Copie-1.STL = Hard\figurine\Figurine - Printable-Pneu - Copie-1.STL
+		Hard\figurine\Figurine - Printable-Pneu - Copie-2.STL = Hard\figurine\Figurine - Printable-Pneu - Copie-2.STL
+		Hard\figurine\Figurine - Printable-Roue - Copie-1.STL = Hard\figurine\Figurine - Printable-Roue - Copie-1.STL
+		Hard\figurine\Figurine - Printable-Roue - Copie-2.STL = Hard\figurine\Figurine - Printable-Roue - Copie-2.STL
+		Hard\figurine\figurine Main.SLDPRT = Hard\figurine\figurine Main.SLDPRT
+		Hard\figurine\figurine Pied.SLDPRT = Hard\figurine\figurine Pied.SLDPRT
+		Hard\figurine\Figurine.3MF = Hard\figurine\Figurine.3MF
+		Hard\figurine\Figurine.SLDASM = Hard\figurine\Figurine.SLDASM
+		Hard\figurine\Figurine2.STL = Hard\figurine\Figurine2.STL
+		Hard\figurine\pied - Copie.SLDPRT = Hard\figurine\pied - Copie.SLDPRT
+		Hard\figurine\Printable-Piece maitresse(bas) - Copie.SLDPRT = Hard\figurine\Printable-Piece maitresse(bas) - Copie.SLDPRT
+		Hard\figurine\Printable-Piece maitresse(cheville) - Copie.SLDPRT = Hard\figurine\Printable-Piece maitresse(cheville) - Copie.SLDPRT
+		Hard\figurine\Printable-Piece maitresse(haut) - Copie.SLDPRT = Hard\figurine\Printable-Piece maitresse(haut) - Copie.SLDPRT
+		Hard\figurine\Printable-Pneu - Copie.SLDPRT = Hard\figurine\Printable-Pneu - Copie.SLDPRT
+		Hard\figurine\Printable-Roue - Copie.SLDPRT = Hard\figurine\Printable-Roue - Copie.SLDPRT
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{CAE941EB-B700-4C33-B441-6539D3261EBF}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		LICENSE-(Hardware) = LICENSE-(Hardware)
+		LICENSE-(Software) = LICENSE-(Software)
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Soft", "Soft", "{CEBE8AC3-4112-4E61-8D4D-6688126E26BF}"
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "Node.JS Version", "Soft\Node.JS Version\Node.JS Version.njsproj", "{9FFDA4BD-2CB1-430B-A51E-5F324CB5B395}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Python", "Soft\Python\Python.pyproj", "{A3DC1164-C73A-4780-B6E7-DC85DEB0B416}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Arduino", "Arduino", "{782BCD7E-C350-48BA-9677-C10A51089233}"
+	ProjectSection(SolutionItems) = preProject
+		Soft\Soft-Arduino\Soft-Arduino.ino = Soft\Soft-Arduino\Soft-Arduino.ino
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9FFDA4BD-2CB1-430B-A51E-5F324CB5B395}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FFDA4BD-2CB1-430B-A51E-5F324CB5B395}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FFDA4BD-2CB1-430B-A51E-5F324CB5B395}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FFDA4BD-2CB1-430B-A51E-5F324CB5B395}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3DC1164-C73A-4780-B6E7-DC85DEB0B416}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3DC1164-C73A-4780-B6E7-DC85DEB0B416}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F27C5330-7F69-409E-B440-E6CBC3FF174F} = {CAE941EB-B700-4C33-B441-6539D3261EBF}
+		{4640E540-8D81-438C-AE92-15E29459C175} = {F27C5330-7F69-409E-B440-E6CBC3FF174F}
+		{CEBE8AC3-4112-4E61-8D4D-6688126E26BF} = {CAE941EB-B700-4C33-B441-6539D3261EBF}
+		{9FFDA4BD-2CB1-430B-A51E-5F324CB5B395} = {CEBE8AC3-4112-4E61-8D4D-6688126E26BF}
+		{A3DC1164-C73A-4780-B6E7-DC85DEB0B416} = {CEBE8AC3-4112-4E61-8D4D-6688126E26BF}
+		{782BCD7E-C350-48BA-9677-C10A51089233} = {CEBE8AC3-4112-4E61-8D4D-6688126E26BF}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E24A6C6A-7335-4E1F-BABD-5E7BF58F6929}
+	EndGlobalSection
+EndGlobal

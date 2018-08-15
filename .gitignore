@@ -1,5 +1,11 @@
 *.stl
 *.SLDASM
 *.SLDPRT
-.vs
 .vscode
+.vs
+*/.vs
+*/.vscode
+*.pyproj
+Soft/Node.JS Version/bin
+Soft/Node.JS Version/node_modules
+Soft/Node.JS Version/obj

@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Télécommande Drone Rainbow six</string>
+    <string name="About">A propos de l\'application</string>
+    <string name="thanks">Remerciments</string>
+    <string name="thankscontent">
+        3 de mes profs pour leur temps (Pour de l\'aide avec des problemes principalements mechaniques, mais aussi un peu pour du code, et pour l\'imprimante 3D pour mon premier prototype) (je ne sais pas si il veulent apparaitre ici, donc je masque leurs noms…)\    \nPour mon imprimante 3D (Je suis desolé mais je n\'ai pas les pseudo de tous):\n\   Adrien K.\n\   Antoine F. (et aussi pour pas mal d\'aide pour du code)\n\   Clement C.\n\   Nicolas R.\n\   Remy B.\nNeyrox_73 (soutien moral)\nBenJiZz (soutien moral)\nLetsFlo33 (quasiment rien… il voulais juste apparaitre ici)\nEt aussi toutes les personnes qui ont cru en moi, et m\'ont encouragé, principalement sur Twitter\nEt tout les autres qui m\'ont aidé sur ce projet et que j\'ai oublié
+    </string>
+    <string name="legal">Legal</string>
+    <string name="maintitle">Connexion au drone</string>
+    <string name="Connect">Connecter</string>
+    <string name="title_activity_about_tab">A propos</string>
+    <string name="aboutdev">A propos du dev</string>
+    <string name="aboutapp">A propos de l\'app</string>
+    <string name="mypapayladress">Ou mon adresse PayPal : matt2001@hotmail.fr</string>
+    <string name="legalcontent">Icônes : \nmaterial.io www.flaticon.com/authors/pixel-perfect
+        \n\nLibrairie: \ngithub.com/studioidan/HttpAgent\n\nLicences:\nTous les icones/logos/marques
+        appartiennent à leurs propriétaires respectifs, même s\'ils ne sont pas mentionnés en dessous\n
+        La marque PayPal, et toutes les autres ressources qui rentrent dans la propriétée intellectuelle de PayPal, sont propriétée de PayPal Holdings, Inc.\n\n
+
+        (S\'il y a un probleme avec ce qui est ecrit ci-dessus (ex: nom d\'une entreprise mal
+        orthographié; quelque-chose qui appartient a vous ou a votre entreprise, qui apparaît dans
+        le code source ou dans l\'application sans que la propriété ne soit mentionné ci-dessus;
+        nom, marque ou logo qui n\'apparait pas comme vous ou votre entreprise le souhaite (comme
+        (tm) ou © manquant); mauvaise attribution de certaines ressources; ou tout autre probleme
+        légal) s\'il vous plaît contactez moi via mon adresse mail renseignée sur Github ou la page
+        Play store de l\'application, avant d\'engager une procedure, pour que je puisse rêgler ce
+        probleme, je suis un débutant dans la publication d\'applications ou les problematiques
+        légales en général, donc c\'est certainement pas parfait… désolé)\n
+    </string>
+</resources>

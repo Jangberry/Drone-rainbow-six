@@ -1,1 +1,0 @@
-Just PLA... density: average 25% 
