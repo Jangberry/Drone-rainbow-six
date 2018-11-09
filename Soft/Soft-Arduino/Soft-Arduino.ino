@@ -7,8 +7,8 @@
  *          contact@jangberry.ovh                                                                  *
  *                                                                                                 *
  * Tested on an arduino nano w/ATmega328P                                                          *
- * To knwo how to connect all pins, please refer to the Fritzing diagram at                        *
- *  ~/Drone-Rainbow-six/Hard/schema.fzz                                                            *
+ * To know how to connect all pins, please refer to the Fritzing diagram at                        *
+ *  .../Hard/schema.fzz                    (incoming in a future commit)                           *
  *                                                                                                 *
  *                                                                                                 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
