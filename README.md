@@ -35,5 +35,4 @@ I'm french so some french words can be found in the source code (such as variabl
 - And everybody else who helped me during this project and that I forget
 
 ## Demo
-I showed it to Matt Andrews at the Six Major Paris, here is the video (demo until 30 seconds, after it's an interview)
-https://youtu.be/hxIm6sGM5Ik
+I showed it to Matt Andrews at the Six Major Paris, [here is the video](https://youtu.be/hxIm6sGM5Ik) (demo until 30 seconds, after it's an interview)
